@@ -5,13 +5,20 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
+      - echo Installing Angular CLI...
       - npm install -g @angular/cli
+  pre_build:
+    commands:
+      - echo Moving to project directory...
+      - cd Frontend/products   # <--- THIS IS THE FIX
+      - echo Installing dependencies...
+      - npm install
   build:
     commands:
-      - npm install
+      - echo Building the application...
       - ng build --configuration=production
-
 artifacts:
   files:
     - '**/*'
-  base-directory: dist/products
+  # This path is relative to where you are after the 'cd' command above
+  base-directory: Frontend/products/dist/products
