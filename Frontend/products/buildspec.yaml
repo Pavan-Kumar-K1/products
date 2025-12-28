@@ -21,4 +21,4 @@ artifacts:
   files:
     - '**/*'
   # This path is relative to where you are after the 'cd' command above
-  base-directory: Frontend/products/dist/products
+  base-directory: Frontend/products/dist/products/browser
